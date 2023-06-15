@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
-import config from '../config';
+import jwt from "jsonwebtoken";
+import config from "../config";
 
-const auth = (req, res, next) => {
+const admin = (req, res, next) => {
   let token = req.headers['x-access-token'] || req.headers['authorization'];
   if (token.startsWith('Bearer ')) {
     token = token.slice(7, token.length);
@@ -10,6 +10,9 @@ const auth = (req, res, next) => {
 
   try {
     req.user = jwt.verify(token, config.JwtSecret);
+    if (!req.user.isAdmin) {
+      return res.status(403).send('Access denied.');
+    }
     next();
   }
   catch (ex) {
@@ -17,4 +20,4 @@ const auth = (req, res, next) => {
   }
 };
 
-export default auth;
+export default admin;

@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'note/detail/:id',
     component: NotesDetailsComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    component: HomeComponent,
   }
 ];
 

@@ -21,7 +21,6 @@ export class NotesDetailsComponent {
     });
 
     this.service.getNoteById(id).subscribe((res: any) => {
-      console.log('data', res);
       this.title = res['title'];
       this.content = res['content'];
       this.noteType = res['type'];
@@ -35,7 +34,6 @@ export class NotesDetailsComponent {
     });
 
     this.service.updateNoteStatus(id).subscribe((res: any) => {
-      console.log("updated to done");
       window.location.reload();
     })
   }

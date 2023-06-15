@@ -13,8 +13,8 @@ const notesType = {
 const notesTypes = [notesType.done, notesType.todo];
 
 const notesSchema = new mongoose.Schema({
-  title: { type: String, required: true, unique: true},
-  content: { type: String, required: true, unique: false},
+  title: { type: String, required: true},
+  content: { type: String, required: true},
   type: { type: String, enum: notesTypes, default: notesType.todo},
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
 }, {
@@ -58,7 +58,7 @@ async function get(id) {
   if (result) {
     return mongoConverter(result);
   }
-  throw applicationException.new(applicationException.NOT_FOUND, 'User not found');
+  throw applicationException.new(applicationException.NOT_FOUND, 'Note not found');
  }
 
 async function removeById(id) {
@@ -68,9 +68,9 @@ async function removeById(id) {
 async function getAllNotesByUserId(userId) {
   const notes = await NotesModel.find({ userId: userId });
   if (notes.length > 0) {
-      return notes.map(mongoConverter);
+    return notes.map(mongoConverter);
   } else {
-      throw applicationException.new(applicationException.NOT_FOUND, 'No notes found for the user');
+    return [];
   }
 }
 

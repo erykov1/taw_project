@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HomeComponent } from './components/home/home.component';
-import {DataService} from "./services/data.service";
 import { AuthService } from './services/auth.service';
 import { NoteCategoryPipe } from './pipes/note-category.pipe';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -18,6 +17,7 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { HighlightButtonDirective } from './directives/highlight-button.directive';
+import { NotesService } from './services/notes.service';
 
 
 @NgModule({
@@ -42,8 +42,8 @@ import { HighlightButtonDirective } from './directives/highlight-button.directiv
     RouterModule
   ],
   providers: [
-    DataService,
     AuthService,
+    NotesService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

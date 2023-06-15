@@ -30,7 +30,6 @@ export class NotesComponent implements OnInit {
     });
     this.service.getAllNotes(id).subscribe(response => {
       this.items$ = response;
-      console.log(this.items$)
    });
   }
 }

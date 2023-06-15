@@ -16,13 +16,15 @@ export class NavbarComponent {
   }
 
   ngOnInit(): void {
-    this.credentials.userId = this.authService.currentUser.userId;
-  }
+    if (this.authService.currentUser && this.authService.currentUser.userId) {
+      this.credentials.userId = this.authService.currentUser.userId;
+    }
+  }  
 
   signOut() {
-	this.authService.logout().subscribe((result: any) => {
-  	this.router.navigate(['/']);
-  	return result;
-	});
+    this.authService.logout().subscribe((result: any) => {
+      this.router.navigate(['/']);
+      return result;
+    });
   }
 }

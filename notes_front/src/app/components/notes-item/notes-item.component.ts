@@ -20,7 +20,6 @@ export class NotesItemComponent implements OnInit {
   deleteNote() {
     if(this.id) {
       this.service.deleteNote(this.id).subscribe(response => {
-        console.log('delete note');
         window.location.reload()
       });
     }
