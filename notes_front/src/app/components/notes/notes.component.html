@@ -1,0 +1,11 @@
+<div>
+  <navbar />
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary custom-btn" (click)="setStatus('all')">All</button>
+    <button type="button" class="btn btn-secondary custom-btn" (click)="setStatus('todo')">To do</button>
+    <button type="button" class="btn btn-success custom-btn" (click)="setStatus('done')">Done</button>
+  </div>
+  <div *ngFor="let item of items$ | noteCategory: filterStatus">
+    <notes-item [title]="item.title.toString()" [id]="item.id.toString()"/>
+  </div>
+</div>

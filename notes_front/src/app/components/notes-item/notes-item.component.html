@@ -1,0 +1,9 @@
+<div class="note-container">
+  <div class="note-title" [textContent]="title" [id]="id">
+  </div>
+  <div class="note-type" [textContent]="type"></div>
+  <div class="btn-container">
+    <button type="button" class="btn btn-primary" [routerLink]="['/note/detail', id]">Details</button>
+    <button type="button" class="btn btn-danger" (click)="deleteNote()">Delete</button>
+  </div>
+</div>

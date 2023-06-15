@@ -1,0 +1,14 @@
+<div class="add-note-container">
+  <navbar />
+  <div class="form-floating mb-3 col-md-6 offset-md-3 mt-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Title" [(ngModel)]="credentials.title">
+    <label for="floatingInput">Title</label>
+  </div>
+  <div class="form-floating mb-3 col-md-6 offset-md-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Content" [(ngModel)]="credentials.content">
+    <label for="floatingInput">Content</label>
+  </div>
+  <div class="btn-sign-up mb-3 col-md-6 offset-md-3">
+    <button type="button" class="btn btn-primary" (click)="create()">Save note</button>
+  </div>
+</div>

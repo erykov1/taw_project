@@ -1,0 +1,14 @@
+<div class="">
+  <navbar />
+  <div class="presentation-container">
+    <div class="presentation-title">
+      <p id="title">{{title}}</p>
+    </div>
+    <div class="presentation-content">
+      <p id="content">{{content}}</p>
+    </div>
+    <div class="presentation-type">
+      <button id="type" [ngClass]="{'todo-type': noteType === 'todo', 'done-type': noteType === 'done'}" (click)="updateStatus()" [disabled]="noteType === 'done'">{{noteType}}</button>
+    </div>
+  </div>
+</div>
